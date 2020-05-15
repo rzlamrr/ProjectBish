@@ -26,7 +26,8 @@ except PhoneNumberInvalidError:
 for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
-LOGS.info("You are running ProjectBish UserBot version: [1.beta.5]")
+LOGS.info("🎉Congratulations🎉 your userbot is running now!"
+          "Enjoy your life and don't forget to be happy with Simple Telegram UserBot.")
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
