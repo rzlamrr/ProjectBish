@@ -131,7 +131,7 @@
     },
     "DEFAULT_BIO": {
       "description": "Default profile bio.",
-      "value": "Hoooman",
+      "value": "Only gurl can broke my heart.",
       "required": false
     },
     "G_DRIVE_DATA": {
