@@ -455,13 +455,14 @@ async def yt_search(video_q):
 
     full_response = await youtube_search(query)
     videos_json = full_response[1]
+    string = "• "
 
     for video in videos_json:
         title = f"{unescape(video['snippet']['title'])}"
         link = f"https://youtu.be/{video['id']['videoId']}"
-        result += f"{title}\n{link}\n\n"
+        result += f"{string}[{title}]({link})\n"
 
-    reply_text = f"**Search Query:**\n`{query}`\n\n**Results:**\n\n{result}"
+    reply_text = f"**YouTube Search Result for {query}**\n{result}"
 
     await video_q.edit(reply_text)
 
