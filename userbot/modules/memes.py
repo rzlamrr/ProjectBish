@@ -363,29 +363,19 @@ FACEREACTS = [
 
 BUCIN_QUOTE = [
    "Terkadang rindu hadir diluar nalar. Ingin segera berlari dan terbang menghampiri.",
-   "Jangan rindu. berat. kamu nggak akan kuat,biar aku saja.",
-   "Milea, jangan bilang ke aku ada yang menyakitimu. Nanti besoknya orang itu akan hilang.",
+   "jangan bilang ke aku ada yang menyakitimu. Nanti besoknya orang itu akan hilang.",
    "Yang penting kamu ada di bumi, jadi rinduku akan selalu terobati",
-   "Ternyata, bangun lebih pagi adalah pembunuh gerutu. Karena kita punya waktu untuk secangkir kopi, setampuk lamunan, dan secarik rindu.",
    "Dijaga, bukan dikekang. Dipeluk, bukan dicekik. Dipercayai, bukan dicurigai. Diperjuangkan, bukan dipaksakan.",
-   "Jodoh tak akan ke mana-mana terlebih dahulu sebelum akhirnya menetap.",
    "Jatuh hati tidak pernah bisa memilih. Tuhan memilihkan. Kita hanyalah korban. Kecewa adalah konsekuensi, bahagia adalah bonus.",
-   "Kadang, yang terindah tak diciptakan untuk dimiliki. Cukup dipandangi dari jauh, lalu syukuri bahwa ia ada di sana untuk dikagumi dalam diam.",
-   "Selalu ada hari baru untuk setiap napas. Selalu ada kesempatan baru untuk kembali tersenyum.",
+   "Kadang, yang terindah tak diciptakan untuk dimiliki. Cukup dipandangi dari jauh, lalu syukuri bahwa ia ada di sana untuk dikagumi dalam diam."   "Selalu ada hari baru untuk setiap napas. Selalu ada kesempatan baru untuk kembali tersenyum.",
    "Lain kali main ke hatimu, aku mau bawa spidol permanen supaya bisa menulis namaku di sana.",
    "Denganmu, basa-basi terasa berisi.",
    "Kamu, aku, adalah dua orang yang pernah dihancurkan. Dipertemukan untuk saling menyembuhkan.",
    "Harry Potter memang menyenangkan. Tapi Harry-harry bersamamu jauh lebih menyenangkan.",
    "Waktu nggak akan menunggu. Lepaskan yang sudah hilang, hargai yang masih ada.",
-   "Waktu nggak akan menunggu. Lepaskan yang sudah hilang, hargai yang masih ada.",
    "Dalam realitas kita berdua hanyalah dua orang yang berlari. Aku sibuk mengejarmu, kau sibuk menghindariku.",
-   "Aku mengalah. Aku mengalah karena aku percaya, kalau kau memang untukku, sejauh apapun kakimu membawamu lari, jalan yang kau tempuh hanya akan membawamu kembali padaku.",
    "Menyayangimu sangatlah mudah, aku bisa melakukannya berulang kali tanpa pernah bosan. Yang sulit itu cara menunjukkannya.",
-   "Senyum saja. Tidak perlu banyak marah-marah. Nanti cepat tua. Daripada tua sendiri, lebih baik tua berdua bareng saya.",
-   "Aku kesal dengan jarak..",
-   "Jarak kesal dengan aku..",
    "Jatuh hati, kurang menyenangkan jika dilakukan sendirian.",
-   "Bersama aku,kamu, Kita melawan kerasnya dunia.",
 ]
 
 RUNS_STR = [
@@ -929,7 +919,7 @@ async def react_meme(react):
 
 @register(outgoing=True, pattern="^.bucin$")
 async def bucin(bucin):
-    """ Kata-kata Bucin from fiersa,dilan & me. """
+    """ Make your bot say Bucin's words. """
     await bucin.edit(choice(BUCIN_QUOTE))
 
 @register(outgoing=True, pattern="^.shg$")
