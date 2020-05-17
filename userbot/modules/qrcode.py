@@ -53,7 +53,7 @@ async def parseqr(qr_e):
 @register(pattern=r".barcode(?: |$)([\s\S]*)", outgoing=True)
 async def bq(event):
     """ For .barcode command, genrate a barcode containing the given content. """
-    await event.edit("`Processing..`")
+    await event.edit("🚛Loading...")
     input_str = event.pattern_match.group(1)
     message = "SYNTAX: `.barcode <long text to include>`"
     reply_msg_id = event.message.id

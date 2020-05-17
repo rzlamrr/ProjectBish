@@ -118,8 +118,8 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             await asyncio.sleep(5)
             return await event.delete()
         else:
-            await event.edit('`Successfully deployed!\n'
-                             'Restarting, please wait...`')
+            await event.edit('Successfully deployed!\n'
+                             'Restarting, please wait...')
     else:
         await event.edit('`[HEROKU]`\n'
                          '`Please set up`  **HEROKU_API_KEY**  `variable...`'
@@ -133,8 +133,7 @@ async def update(event, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
-    await event.edit('`Successfully Updated!\n'
-                     'Bot is restarting... Wait for a second!`')
+    await event.edit('Successfully Updated!\nBot is restarting...')
     # Spin a new instance of bot
     args = [sys.executable, "-m", "userbot"]
     execle(sys.executable, *args, environ)
@@ -144,7 +143,7 @@ async def update(event, repo, ups_rem, ac_br):
 @register(outgoing=True, pattern="^.update( now| deploy|$)")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
-    await event.edit("`Getting information....`")
+    await event.edit("`Checking update...`")
     conf = event.pattern_match.group(1).strip()
     off_repo = UPSTREAM_REPO_URL
     force_update = False
@@ -194,13 +193,13 @@ async def upstream(event):
     changelog = await gen_chlog(repo, f'HEAD..upstream/{ac_br}')
     """ - Special case for deploy - """
     if conf == "deploy":
-        await event.edit('`Deploying userbot, please wait....`')
+        await event.edit('`New update found, deploying...`')
         await deploy(event, repo, ups_rem, ac_br, txt)
         return
 
     if changelog == '' and force_update is False:
         await event.edit(
-            '\n`Your USERBOT is`  **up-to-date**  `with`  '
+            '\nYour UserBot is **up-to-date** with branch '
             f'**{UPSTREAM_REPO_BRANCH}**\n')
         return repo.__del__()
 
@@ -208,13 +207,13 @@ async def upstream(event):
         await print_changelogs(event, ac_br, changelog)
         await event.delete()
         return await event.respond(
-            '`do ".update now or .update deploy" to update.`')
+            '`do ".update now" or ".update deploy" to update.`')
 
     if force_update:
         await event.edit(
             '`Force-Syncing to latest stable userbot code, please wait...`')
     if conf == "now":
-        await event.edit('`Updating userbot, please wait....`')
+        await event.edit('`New update found, updating...`')
         await update(event, repo, ups_rem, ac_br)
     return
 

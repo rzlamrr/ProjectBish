@@ -39,7 +39,7 @@ async def lyrics(lyric):
         await lyric.edit("`😐 Please provide artist and song names`")
         return
 
-    await lyric.edit(f"`🚛Loading...`")
+    await lyric.edit(f"🚛Loading...")
 
     try:
         songs = genius.search_song(song, artist)

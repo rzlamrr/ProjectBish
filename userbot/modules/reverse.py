@@ -40,7 +40,7 @@ async def okgoogle(img):
         return await img.edit("`Reply to photo or sticker nigger.`")
 
     if photo:
-        await img.edit("`Processing...`")
+        await img.edit("🚛Loading...")
         try:
             image = Image.open(photo)
         except OSError:
@@ -60,8 +60,8 @@ async def okgoogle(img):
         fetchUrl = response.headers['Location']
 
         if response != 400:
-            await img.edit("`Image successfully uploaded to Google. Maybe.`"
-                           "\n`Parsing source now. Maybe.`")
+            await img.edit("`Image successfully uploaded to Google.`"
+                           "\n`Parsing source now.`")
         else:
             return await img.edit("`Google told me to fuck off.`")
 
@@ -72,7 +72,7 @@ async def okgoogle(img):
         imgspage = match['similar_images']
 
         if guess and imgspage:
-            await img.edit(f"[{guess}]({fetchUrl})\n\n`Looking for images...`")
+            await img.edit(f"[{guess}]({fetchUrl})\n`Looking for images...`")
         else:
             return await img.edit("`Couldn't find anything for your uglyass.`")
 
@@ -94,7 +94,7 @@ async def okgoogle(img):
         except TypeError:
             pass
         await img.edit(
-            f"[{guess}]({fetchUrl})\n\n[Visually similar images]({imgspage})")
+            f"• [{guess}]({fetchUrl})\n• [Visually similar images]({imgspage})")
 
 
 async def ParseSauce(googleurl):

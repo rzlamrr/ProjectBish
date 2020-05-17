@@ -97,7 +97,7 @@ async def carbon_api(e):
 @register(outgoing=True, pattern="^.img (.*)")
 async def img_sampler(event):
     """ For .img command, search and return images matching the query. """
-    await event.edit("`Processing...`")
+    await event.edit("🚛Loading...")
     query = event.pattern_match.group(1)
     lim = findall(r"lim=\d+", query)
     try:
@@ -155,6 +155,7 @@ async def moni(event):
 @register(outgoing=True, pattern=r"^.google (.*)")
 async def gsearch(q_event):
     """ For .google command, do a Google search. """
+    await q_event.edit("🚛Loading...")
     match = q_event.pattern_match.group(1)
     page = findall(r"page=\d+", match)
     try:
@@ -219,7 +220,7 @@ async def wiki(wiki_q):
 @register(outgoing=True, pattern="^.ud (.*)")
 async def urban_dict(ud_e):
     """ For .ud command, fetch content from Urban Dictionary. """
-    await ud_e.edit("Processing...")
+    await ud_e.edit("🚛Loading...")
     query = ud_e.pattern_match.group(1)
     try:
         define(query)
@@ -452,7 +453,7 @@ async def yt_search(video_q):
             "`Error: YouTube API key missing! Add it to environment vars or config.env.`"
         )
 
-    await video_q.edit("```Processing...```")
+    await video_q.edit("🚛Loading...")
 
     full_response = await youtube_search(query)
     videos_json = full_response[1]
@@ -510,7 +511,7 @@ async def download_video(v_url):
     url = v_url.pattern_match.group(2)
     type = v_url.pattern_match.group(1).lower()
 
-    await v_url.edit("`Preparing to download...`")
+    await v_url.edit("**Preparing to download...**")
 
     if type == "audio":
         opts = {
@@ -572,7 +573,7 @@ async def download_video(v_url):
         video = True
 
     try:
-        await v_url.edit("`Fetching data, please wait..`")
+        await v_url.edit("🚛Loading...")
         with YoutubeDL(opts) as rip:
             rip_data = rip.extract_info(url)
     except DownloadError as DE:

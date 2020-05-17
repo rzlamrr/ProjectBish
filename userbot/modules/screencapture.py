@@ -18,7 +18,7 @@ from userbot import CMD_HELP
 @register(pattern="^.ss (.*)", outgoing=True)
 async def capture(url):
     """ For .ss command, capture a website's screenshot and send the photo. """
-    await url.edit("`Processing...`")
+    await url.edit("🚛Loading...")
     chrome_options = await options()
     chrome_options.add_argument("--test-type")
     chrome_options.add_argument("--ignore-certificate-errors")
@@ -45,8 +45,8 @@ async def capture(url):
     wait_for = height / 1000
     await url.edit(
         "`Generating screenshot of the page...`"
-        f"\n`Height of page = {height}px`"
-        f"\n`Width of page = {width}px`"
+        f"\n**Height of page** = `{height}px`"
+        f"\n**Width of page** = `{width}px`"
         f"\n`Waiting ({int(wait_for)}s) for the page to load.`")
     await sleep(int(wait_for))
     im_png = driver.get_screenshot_as_png()
