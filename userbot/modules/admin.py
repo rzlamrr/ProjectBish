@@ -793,27 +793,47 @@ async def get_bots(show):
 
 CMD_HELP.update({
     "admin":
-    ">`.promote <username/reply> <custom rank (optional)>`"
-    "\nUsage: Provides admin rights to the person in the chat."
-    "\n\n>`.demote <username/reply>`"
-    "\nUsage: Revokes the person's admin permissions in the chat."
-    "\n\n>`.ban <username/reply> <reason (optional)>`"
-    "\nUsage: Bans the person off your chat."
-    "\n\n>`.unban <username/reply>`"
-    "\nUsage: Removes the ban from the person in the chat."
-    "\n\n>`.mute <username/reply> <reason (optional)>`"
-    "\nUsage: Mutes the person in the chat, works on admins too."
-    "\n\n>`.unmute <username/reply>`"
-    "\nUsage: Removes the person from the muted list."
-    "\n\n>`.zombies`"
-    "\nUsage: Searches for deleted accounts in a group. "
-    "Use .zombies clean to remove deleted accounts from the group."
-    "\n\n>`.admins`"
-    "\nUsage: Retrieves a list of admins in the chat."
-    "\n\n>`.bots`"
-    "\nUsage: Retrieves a list of bots in the chat."
-    "\n\n>`.users` or >`.users <name of member>`"
-    "\nUsage: Retrieves all (or queried) users in the chat."
-    "\n\n>`.setgppic <reply to image>`"
-    "\nUsage: Changes the group's display picture."
+    {
+        ".promote":
+        "Provides admin rights to the person in the chat.\n"
+        "**Hints**:\n>`.promote` <username/reply> <custom rank (optional)>",
+
+        ".demote":
+        "Revokes the person's admin permissions in the chat.\n"
+        "**Hints**:\n>`.demote` <username/reply>",
+
+        ".ban":
+        "Bans the person off your chat.\n"
+        "**Hints**:\n>`.ban` <username/reply> <reason (optional)>",
+
+        ".unban":
+        "Removes the ban from the person in the chat.\n"
+        "**Hints**:\n>`.unban` <username/reply>",
+
+        ".mute":
+        "Mutes the person in the chat, works on admins too.\n"
+        "**Hints**:\n>`.mute` <username/reply> <reason (optional)>",
+
+        ".unmute":
+        "Removes the person from the muted list.\n"
+        "**Hints**:\n>`.unmute` <username/reply>",
+
+        ".zombies":
+        "Searches for deleted accounts in a group.\n"
+        "Use >`.zombies clean` to remove deleted accounts from the group.",
+
+        ".admins":
+        "Retrieves a list of admins in the chat.",
+
+        ".bots":
+        "Retrieves a list of bots in the chat.",
+
+        ".users":
+        "Retrieves all (or queried) users in the chat or "
+        "input user to specify one.",
+
+        ".setgpic":
+        "Changes the group's display picture.\n"
+        "**Hints**:\n>`.setgpic` <reply to image>"
+    }
 })
