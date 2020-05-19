@@ -24,7 +24,7 @@ async def help(event):
             "    >`.help` [module]\n\n"
             "**[{len(CMD_HELP)}], Loaded Modules**:\n\n"
         )
-        for index, key in CMD_HELP:
+        for index, key in enumerate(CMD_HELP):
             index += 1
             string += (
                 f"    **{index}**. `{key}`.    "
