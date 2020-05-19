@@ -30,4 +30,4 @@ async def help(event):
                 f"    <b>{index}</b>. "
                 f'<pre><code class="language-python">{key}</code></pre>.\n'
             )
-        await event.edit(string)
+        await event.edit(string, parse_mode="html")
