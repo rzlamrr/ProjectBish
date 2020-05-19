@@ -14,15 +14,40 @@ async def help(event):
     """ For .help command,"""
     args = event.pattern_match.group(1).lower()
     if args:
-        if args in CMD_HELP:
-            await event.edit(str(CMD_HELP[args]))
+        query = CMD_HELP.get(args)
+        if query:
+            string = (
+                "**Query**:\n\n"
+                f"    `{args}`\n\n"
+                f"**Command**:\n\n"
+            )
+            for cmd, usage in query.items():
+                string += f">`.{cmd}`\n"
+                string += f"{usage}"
         else:
-            await event.edit("Please specify a valid module name.")
+            cmd, usage = None, None
+            for module in CMD_HELP:
+                for key, value in CMD_HELP.get(module).items():
+                    if args == key:
+                        usage = value
+                        break
+                else:
+                    await event.edit(
+                        "`There is no command or module`: **{args}**.")
+                    return False
+                if cmd is not None and usage is not None:
+                    string = (
+                        "**Query**:\n\n"
+                        f"    >`{args}`\n\n"
+                        f"**Usage**:\n\n"
+                        f"{usage}"
+                    )
+        await event.edit(string)
     else:
         string = (
             "**Usage**:\n\n"
             "    >`.help` [module]\n\n"
-            f"**[{len(CMD_HELP)}], Loaded Modules**:\n\n"
+            f"**Loaded Modules [{len(CMD_HELP)}]**:\n\n"
         )
         for key in CMD_HELP:
             string += (f"`{key}`    ")
