@@ -24,10 +24,6 @@ async def help(event):
             "    >`.help` [module]\n\n"
             f"**[{len(CMD_HELP)}], Loaded Modules**:\n\n"
         )
-        for index, key in enumerate(CMD_HELP):
-            index += 1
-            string += (
-                f"    <b>{index}</b>. "
-                f'<pre><code class="language-python">{key}</code></pre>.\n'
-            )
-        await event.edit(string, parse_mode="html")
+        for key in CMD_HELP:
+            string += (f"`{key}`    ")
+        await event.edit(string)
