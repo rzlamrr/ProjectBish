@@ -22,8 +22,8 @@ async def help(event):
                 f"**Command**:\n\n"
             )
             for cmd, usage in query.items():
-                string += f">`.{cmd}`\n"
-                string += f"{usage}"
+                string += f">`{cmd}`\n"
+                string += f"Usage: {usage}"
         else:
             cmd, usage = None, None
             for module in CMD_HELP:
