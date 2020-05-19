@@ -5,7 +5,7 @@
 #
 """ Userbot help command """
 
-from userbot import CMD_HELP
+from userbot import CMD_HELP, LOGS
 from userbot.events import register
 
 
@@ -23,10 +23,11 @@ async def help(event):
             )
             for cmd, usage in query.items():
                 string += f">`{cmd}`\n"
-                string += f"Usage: {usage}"
+                string += f"**Usage**:\n{usage}\n\n"
         else:
             cmd, usage = None, None
             for module in CMD_HELP:
+                LOGS.info(module)
                 for key, value in CMD_HELP.get(module).items():
                     if args == key:
                         usage = value
@@ -42,6 +43,7 @@ async def help(event):
                         f"**Usage**:\n\n"
                         f"{usage}"
                     )
+                    break
         await event.edit(string)
     else:
         string = (
