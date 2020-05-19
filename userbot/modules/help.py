@@ -27,6 +27,7 @@ async def help(event):
         for index, key in enumerate(CMD_HELP):
             index += 1
             string += (
-                f"    **{index}**. `{key}`.\n"
+                f"    <b>{index}</b>. "
+                f'<pre><code class="language-python">{key}</code></pre>.\n'
             )
         await event.edit(string)
