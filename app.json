@@ -135,7 +135,7 @@
       "required": false
     },
     "G_DRIVE_DATA": {
-      "description": "Your client_secret.json.",
+      "description": "Your client_secret.json. see for more info -> https://telegra.ph/How-To-Setup-Google-Drive-04-03",
       "required": false
     },
     "GENIUS_ACCESS_TOKEN": {
