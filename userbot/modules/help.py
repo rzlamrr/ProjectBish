@@ -22,12 +22,11 @@ async def help(event):
         string = (
             "**Usage**:\n\n"
             "    >`.help` [module]\n\n"
-            "**[{len(CMD_HELP)}], Loaded Modules**:\n\n"
+            f"**[{len(CMD_HELP)}], Loaded Modules**:\n\n"
         )
         for index, key in enumerate(CMD_HELP):
             index += 1
             string += (
-                f"    **{index}**. `{key}`.    "
-                f"**{index}**. `{key}`.\n"
+                f"    **{index}**. `{key}`.\n"
             )
         await event.edit(string)
